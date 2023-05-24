@@ -1,0 +1,19 @@
+.cita-card {
+    position: relative;
+  }
+  
+  .circulo {
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: blue;
+    border-radius: 50%;
+  }
+  
+  .cita-detalles {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
