@@ -13,6 +13,8 @@ function FormularioVet({ agregarCita }) {
   const [fechaValid, setFechaValid] = useState(null);
   const [horaValid, setHoraValid] = useState(null);
   const [sintomasValid, setSintomasValid] = useState(null);
+  const letrasInput = /^[a-zA-Z\s]+$/
+  const numerosInput = /^[0-9/:]+$/
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,10 +60,11 @@ function FormularioVet({ agregarCita }) {
         <Form.Label>Nombre de mascota:</Form.Label>
         <Form.Control
           type="text"
+          placeholder='Ingrese el nombre de la mascota'
           value={nombre}
           onChange={(e) => {
             setNombre(e.target.value);
-            setNombreValid(e.target.value.trim() !== '' ? true : null);
+            setNombreValid(letrasInput.test(e.target.value.trim()))
           }}
           required
           isValid={nombreValid}
@@ -72,10 +75,11 @@ function FormularioVet({ agregarCita }) {
         <Form.Label>Nombre de dueño:</Form.Label>
         <Form.Control
           type="text"
+          placeholder='Ingrese el nombre del dueño o dueña'
           value={duenio}
           onChange={(e) => {
             setDuenio(e.target.value);
-            setDuenioValid(e.target.value.trim() !== '' ? true : null);
+            setDuenioValid(letrasInput.test(e.target.value.trim()))
           }}
           required
           isValid={duenioValid}
@@ -86,10 +90,11 @@ function FormularioVet({ agregarCita }) {
         <Form.Label>Fecha:</Form.Label>
         <Form.Control
           type="text"
+          placeholder='dd/mm/yyyy'
           value={fecha}
           onChange={(e) => {
             setFecha(e.target.value);
-            setFechaValid(e.target.value.trim() !== '' ? true : null);
+            setFechaValid(numerosInput.test(e.target.value.trim()));
           }}
           required
           isValid={fechaValid}
@@ -100,10 +105,11 @@ function FormularioVet({ agregarCita }) {
         <Form.Label>Hora:</Form.Label>
         <Form.Control
           type="text"
+          placeholder='hh:mm'
           value={hora}
           onChange={(e) => {
             setHora(e.target.value);
-            setHoraValid(e.target.value.trim() !== '' ? true : null);
+            setHoraValid(numerosInput.test(e.target.value.trim()));
           }}
           required
           isValid={horaValid}
@@ -114,10 +120,11 @@ function FormularioVet({ agregarCita }) {
         <Form.Label>Síntomas:</Form.Label>
         <Form.Control
           type="text"
+          placeholder='Describa los sintomas'
           value={sintomas}
           onChange={(e) => {
             setSintomas(e.target.value);
-            setSintomasValid(e.target.value.trim() !== '' ? true : null);
+            setSintomasValid(letrasInput.test(e.target.value.trim()));
           }}
           required
           isValid={sintomasValid}
