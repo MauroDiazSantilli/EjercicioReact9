@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
 import FormularioVet from './FormularioVet';
 import CardVet from './CardVet';
@@ -29,14 +29,20 @@ function AdministradorVet() {
 
   return (
     <Container>
-      <h3 className='text-center mt-3 mb-4'>Administrador pacientes de veterinaria</h3>
+      <h3 className="text-center mt-3 mb-4">
+        Administrador pacientes de veterinaria
+      </h3>
       <FormularioVet agregarCita={agregarCita} />
-      <h2 className='text-center mt-3'>Citas registradas</h2>
+      <h2 className="text-center mt-3">Citas registradas</h2>
       {citas.length === 0 ? (
-        <p className='text-center mt-5'>No hay citas</p>
+        <p className="text-center mt-5">No hay citas</p>
       ) : (
         citas.map((cita) => (
-          <CardVet key={cita.id} cita={cita} eliminarCita={eliminarCita} />
+          <CardVet
+            key={cita.id}
+            cita={cita}
+            eliminarCita={eliminarCita}
+          />
         ))
       )}
     </Container>

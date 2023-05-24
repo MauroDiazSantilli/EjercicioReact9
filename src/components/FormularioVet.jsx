@@ -8,15 +8,21 @@ function FormularioVet({ agregarCita }) {
   const [hora, setHora] = useState('');
   const [sintomas, setSintomas] = useState('');
 
+  const [nombreValid, setNombreValid] = useState(null);
+  const [duenioValid, setDuenioValid] = useState(null);
+  const [fechaValid, setFechaValid] = useState(null);
+  const [horaValid, setHoraValid] = useState(null);
+  const [sintomasValid, setSintomasValid] = useState(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (
-      nombre.trim() === '' ||
-      duenio.trim() === '' ||
-      fecha.trim() === '' ||
-      hora.trim() === '' ||
-      sintomas.trim() === ''
+      !nombreValid ||
+      !duenioValid ||
+      !fechaValid ||
+      !horaValid ||
+      !sintomasValid
     ) {
       alert('Todos los campos son obligatorios');
       return;
@@ -38,6 +44,12 @@ function FormularioVet({ agregarCita }) {
     setFecha('');
     setHora('');
     setSintomas('');
+
+    setNombreValid(null);
+    setDuenioValid(null);
+    setFechaValid(null);
+    setHoraValid(null);
+    setSintomasValid(null);
   };
 
   return (
@@ -47,8 +59,13 @@ function FormularioVet({ agregarCita }) {
         <Form.Control
           type="text"
           value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
+          onChange={(e) => {
+            setNombre(e.target.value);
+            setNombreValid(e.target.value.trim() !== '' ? true : null);
+          }}
           required
+          isValid={nombreValid}
+          isInvalid={nombreValid === false}
         />
       </Form.Group>
       <Form.Group>
@@ -56,8 +73,13 @@ function FormularioVet({ agregarCita }) {
         <Form.Control
           type="text"
           value={duenio}
-          onChange={(e) => setDuenio(e.target.value)}
+          onChange={(e) => {
+            setDuenio(e.target.value);
+            setDuenioValid(e.target.value.trim() !== '' ? true : null);
+          }}
           required
+          isValid={duenioValid}
+          isInvalid={duenioValid === false}
         />
       </Form.Group>
       <Form.Group>
@@ -65,8 +87,13 @@ function FormularioVet({ agregarCita }) {
         <Form.Control
           type="text"
           value={fecha}
-          onChange={(e) => setFecha(e.target.value)}
+          onChange={(e) => {
+            setFecha(e.target.value);
+            setFechaValid(e.target.value.trim() !== '' ? true : null);
+          }}
           required
+          isValid={fechaValid}
+          isInvalid={fechaValid === false}
         />
       </Form.Group>
       <Form.Group>
@@ -74,8 +101,13 @@ function FormularioVet({ agregarCita }) {
         <Form.Control
           type="text"
           value={hora}
-          onChange={(e) => setHora(e.target.value)}
+          onChange={(e) => {
+            setHora(e.target.value);
+            setHoraValid(e.target.value.trim() !== '' ? true : null);
+          }}
           required
+          isValid={horaValid}
+          isInvalid={horaValid === false}
         />
       </Form.Group>
       <Form.Group>
@@ -83,11 +115,18 @@ function FormularioVet({ agregarCita }) {
         <Form.Control
           type="text"
           value={sintomas}
-          onChange={(e) => setSintomas(e.target.value)}
+          onChange={(e) => {
+            setSintomas(e.target.value);
+            setSintomasValid(e.target.value.trim() !== '' ? true : null);
+          }}
           required
+          isValid={sintomasValid}
+          isInvalid={sintomasValid === false}
         />
       </Form.Group>
-      <Button className= "mt-3" type="submit">Agregar nueva cita</Button>
+      <Button className="mt-3" type="submit">
+        Agregar nueva cita
+      </Button>
     </Form>
   );
 }

@@ -4,7 +4,7 @@ import '../App.css';
 
 function CardVet({ cita, eliminarCita }) {
   return (
-    <Card className="cita-card" style={{ width: '300px'}}>
+    <Card className="cita-card" style={{ width: '300px' }}>
       <div className="circulo"></div>
       <Card.Body>
         <Card.Title>{cita.nombre}</Card.Title>
