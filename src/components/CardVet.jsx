@@ -6,7 +6,7 @@ import '../App.css';
 
 function CardVet({ cita, eliminarCita }) {
   return (
-    <Card className="cita-card" style={{ width: '300px' }}>
+    <Card className="mb-4">
       <Card.Body className="bg-info">
         <Row>
           <Col>

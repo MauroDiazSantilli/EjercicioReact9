@@ -56,7 +56,7 @@ function FormularioVet({ agregarCita }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group>
+      <Form.Group className='mb-3'>
         <Form.Label>Nombre de mascota:</Form.Label>
         <Form.Control
           type="text"
@@ -71,7 +71,7 @@ function FormularioVet({ agregarCita }) {
           isInvalid={nombreValid === false}
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className='mb-3'>
         <Form.Label>Nombre de dueño:</Form.Label>
         <Form.Control
           type="text"
@@ -86,11 +86,11 @@ function FormularioVet({ agregarCita }) {
           isInvalid={duenioValid === false}
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className='mb-3'>
         <Form.Label>Fecha:</Form.Label>
         <Form.Control
           type="text"
-          placeholder='dd/mm/yyyy'
+          placeholder='dd/mm/aaaa'
           value={fecha}
           onChange={(e) => {
             setFecha(e.target.value);
@@ -101,7 +101,7 @@ function FormularioVet({ agregarCita }) {
           isInvalid={fechaValid === false}
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className='mb-3'>
         <Form.Label>Hora:</Form.Label>
         <Form.Control
           type="text"
@@ -116,7 +116,7 @@ function FormularioVet({ agregarCita }) {
           isInvalid={horaValid === false}
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className='mb-3'>
         <Form.Label>Síntomas:</Form.Label>
         <Form.Control
           type="text"
