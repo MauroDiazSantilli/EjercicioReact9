@@ -1,19 +1,14 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
 .cita-card {
-    position: relative;
-  }
-  
-  .circulo {
-    position: absolute;
-    top: 50%;
-    left: -20px;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background-color: blue;
-    border-radius: 50%;
-  }
-  
-  .cita-detalles {
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.cita-detalles {
+  background-color: azure;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+

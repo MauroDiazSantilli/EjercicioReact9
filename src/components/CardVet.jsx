@@ -1,14 +1,23 @@
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserDoctor } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
 
 function CardVet({ cita, eliminarCita }) {
   return (
     <Card className="cita-card" style={{ width: '300px' }}>
-      <div className="circulo"></div>
-      <Card.Body>
-        <Card.Title>{cita.nombre}</Card.Title>
-        <Card.Text>Dueño: {cita.duenio}</Card.Text>
+      <Card.Body className="bg-info">
+        <Row>
+          <Col>
+            <div className="icono-doctor">
+            <FontAwesomeIcon icon={faUserDoctor} bounce size='lg'/>
+            </div>
+            <Card.Title>{cita.nombre}</Card.Title>
+            <Card.Text>Dueño: {cita.duenio}</Card.Text>
+          </Col>
+        </Row>
+        <hr />
         <div className="cita-detalles">
           <Card.Text>Fecha: {cita.fecha}</Card.Text>
           <Card.Text>Hora: {cita.hora}</Card.Text>
