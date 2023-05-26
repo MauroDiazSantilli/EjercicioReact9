@@ -7,7 +7,7 @@ import '../App.css';
 function CardVet({ cita, eliminarCita }) {
   return (
     <Card className="mb-4">
-      <Card.Body className="bg-info">
+      <Card.Body className="bg-white">
         <Row>
           <Col>
             <div className="icono-doctor">
